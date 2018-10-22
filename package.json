@@ -1,0 +1,69 @@
+{
+  "name": "project",
+  "version": "0.0.1",
+  "description": "Project management api",
+  "main": "index.js",
+  "keywords": [
+    "project",
+    "domain"
+  ],
+  "private": true,
+  "authors": [
+    {
+      "name": "Muhammad Hussein Fattahizadeh",
+      "email": "m@mhf.ir"
+    }
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=8.0",
+    "npm": ">=5.6"
+  },
+  "scripts": {
+    "coverage": "NODE_ENV=test nyc mocha -r ts-node/register test/**/*.spec.ts",
+    "coverage-gitlab": "ts-node test/helpers/coverage.ts",
+    "docs": "typedoc --target es2017 --hideGenerator --theme minimal --out docs src",
+    "lint": "tslint --project .",
+    "test": "NODE_ENV=test mocha -r ts-node/register test/**/*.spec.ts"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "json-summary",
+      "lcov",
+      "text-summary"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "dependencies": {
+    "fastify": "^1.12.1",
+    "fastify-swagger": "^0.15.1",
+    "source-map-support": "^0.5.9"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "prettier": "^1.14.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-sonarts": "^1.8.0",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.1.3"
+  }
+}

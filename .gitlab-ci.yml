@@ -1,0 +1,44 @@
+image: node:latest
+
+before_script:
+  - npm install
+
+cache:
+  paths:
+    - node_modules/
+
+test:lint:
+  script:
+    - npm run lint -s
+
+test:vulnerabilities:
+  script:
+    - npm run vuln-test
+
+test:coverage:
+  script: npm run coverage-gitlab -s
+  coverage: '/\d+\.\d+/'
+
+test:node:8:
+  image: node:8
+  script:
+    - npm install -g codecov
+    - npm run build
+    - npm test && codecov
+
+test:node:10:
+  image: node:10
+  script:
+    - npm run build
+    - npm test
+
+# Publish tagged versions to npm
+publish:
+  stage: deploy
+  only:
+    - tags
+    - triggers
+  script:
+    - npm run build
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+    - npm publish

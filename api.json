@@ -1,0 +1,38 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "termsOfService": "http://aasaam.com/terms-of-service",
+    "contact": {
+      "email": "api@aasaam.com"
+    }
+  },
+  "host": "captcha.api.aasaam.com",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "Client",
+      "description": "Everything about client usage"
+    },
+    {
+      "name": "Server",
+      "description": "Everything about server usage"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about AASAAM API(s)",
+    "url": "http://aasaam.com/api"
+  }
+}
