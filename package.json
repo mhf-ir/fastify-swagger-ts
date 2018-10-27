@@ -1,7 +1,7 @@
 {
-  "name": "project",
+  "name": "captcha-service",
   "version": "0.0.1",
-  "description": "Project management api",
+  "description": "Captcha service for detect bot and user attempt",
   "main": "index.js",
   "keywords": [
     "project",
@@ -48,7 +48,8 @@
   "dependencies": {
     "fastify": "^1.12.1",
     "fastify-swagger": "^0.15.1",
-    "source-map-support": "^0.5.9"
+    "source-map-support": "^0.5.9",
+    "svg-captcha": "^1.3.11"
   },
   "devDependencies": {
     "@types/chai": "^4.1.6",

@@ -17,9 +17,11 @@ const defaultMiddleware = (
   reply: ServerResponse,
   next: (err?: Error) => void,
 ) => {
-  Object.keys(defaultHeaders).forEach((k) => {
-    reply.setHeader(k, defaultHeaders[k]);
-  });
+  if (req.url && !req.url.match(/_openapi2/)) {
+    Object.keys(defaultHeaders).forEach((k) => {
+      reply.setHeader(k, defaultHeaders[k]);
+    });
+  }
   next();
 };
 
